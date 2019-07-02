@@ -1,10 +1,16 @@
 public class Entity {
     private int health;
     private int maxHealth;
+    private String name;
     
-    public Entity(int maxHealth) {
+    public Entity(int maxHealth, String name) {
         this.maxHealth = maxHealth;
         this.health = maxHealth;
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public void takeDamage(int damage) {
