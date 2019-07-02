@@ -3,6 +3,7 @@ public class Armor {
     private String name;
     private double dmgAbs;
     private double aHealth;
+    private double aMaxHealth;
     private double allDmg;
 
     public Armor (String name, double dmgAbs, int aHealth, double allDmg) {
@@ -22,7 +23,7 @@ public class Armor {
         if (rand.nextDouble() < this.allDmg) {
             tmp = 0.0;
         }
-        this.aHealth = damage - tmp*damage;
+        this.aHealth -= damage - tmp*damage;
         return (int)(tmp * damage);
     }
 

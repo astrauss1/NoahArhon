@@ -20,4 +20,8 @@ public class Player extends Entity {
         this.level = level;
         this.basicAttack = basicAttack;
     }
+
+    public getBasicAttack() {
+        return this.basicAttack;
+    }
 }
