@@ -1,14 +1,23 @@
 public class Player extends Entity {
     private int level;
-    private String name;
+    private Weapon basicAttack;
+    private Armor[] armor = {
+        new Armor("None", 0, 0, 0), 
+        new Armor("None", 0, 0, 0), 
+        new Armor("None", 0, 0, 0), 
+        new Armor("None", 0, 0, 0)
+    };
 
-    public Player(int maxHealth, int level, String name) {
-        super(maxHealth);
+    public Player(int maxHealth, int level, String name, Weapon basicAttack, Armor[] armor) {
+        super(maxHealth, name);
         this.level = level;
-        this.name = name;
+        this.basicAttack = basicAttack;
+        this.armor = armor;
     }
-    
-    public String getName() {
-        return this.name;
+
+    public Player(int maxHealth, int level, String name, Weapon basicAttack) {
+        super(maxHealth, name);
+        this.level = level;
+        this.basicAttack = basicAttack;
     }
 }

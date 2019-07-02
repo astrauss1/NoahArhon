@@ -1,28 +1,32 @@
 import java.util.Random;
-public class Armor{
+public class Armor {
     private String name;
     private double dmgAbs;
-    private int aHealth;
+    private double aHealth;
     private double allDmg;
-    public Armor (String name, double dmgAbs, int aHealth, double allDmg){
+
+    public Armor (String name, double dmgAbs, int aHealth, double allDmg) {
         this.name=name;
         this.dmgAbs=dmgAbs;
         this.aHealth=aHealth;
         this.allDmg=allDmg;
     }
-    public String getName(){
+
+    public String getName() {
         return this.name;
     }
-    public double getDmgAbs(){
+
+    public double getModDmg(int damage) {
         double tmp = this.dmgAbs;
         Random rand = new Random();
         if (rand.nextDouble() < this.allDmg) {
             tmp = 0.0;
         }
-        return tmp;
-
+        this.aHealth = damage - tmp*damage;
+        return (int)(tmp * damage);
     }
-    public int getAHealth(){
+
+    public double getAHealth() {
         return this.aHealth;
     }
 }
