@@ -21,4 +21,7 @@ public class Ally extends Entity {
     public Weapon getBasicAttack() {
         return this.basicAttack;
     }
+    public Armor[] armor(){
+        return this.armor;
+    }
 }
