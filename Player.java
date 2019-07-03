@@ -21,7 +21,7 @@ public class Player extends Entity {
         this.basicAttack = basicAttack;
     }
 
-    public getBasicAttack() {
+    public Weapon getBasicAttack() {
         return this.basicAttack;
     }
 }
