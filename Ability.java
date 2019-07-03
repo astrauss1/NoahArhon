@@ -12,7 +12,15 @@ public class Ability {
     public String getName(){
         return this.name;
     }
-    public int getMultdmg(int damage){
+    public int getDmgMult(int damage){
         double tmp=this.dmgMult;
+        return(int)(tmp*damage);
+    }
+    public int getDmgRed(int damage){
+        double tmp=this.dmgRed;
+        return(int)(tmp*damage);
+    }
+    public int getDamage(){
+        return this.damage;
     }
 }

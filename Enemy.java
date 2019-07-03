@@ -2,7 +2,7 @@ public class Enemy extends Entity {
     private Armor[] armor = new Armor[4];
     private int damage;
     public Enemy (int maxHealth, String name, int damage){
-        super(maxHealth);
+        super(maxHealth, name);
         this.damage=damage;
     }
     public int getDamage(){
