@@ -2,11 +2,12 @@ public class Entity {
     private int health;
     private int maxHealth;
     private String name;
-    
+    private int MoveSpeed;
     public Entity(int maxHealth, String name) {
         this.maxHealth = maxHealth;
         this.health = maxHealth;
         this.name = name;
+        this.MoveSpeed=MoveSpeed;
     }
 
     public String getName() {
@@ -30,5 +31,8 @@ public class Entity {
         if (this.health > this.maxHealth) {
             this.health = this.maxHealth;
         }
+    }
+    public int getMove(char m){
+        return this.MoveSpeed;
     }
 }
