@@ -2,9 +2,11 @@ import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
-        String pName=JOptionPane.showInputDialog(null, "Please enter your name");
-        Weapon basicSword = new Weapon("Basic Sword", 10);
-        Player a = new Player(50, 1, pName, basicSword);
-        System.out.println(a.getName());
+        Player b = new Player(50, 1, "Hi", new Weapon("asdf", 10), 10);
+        
+        System.out.println(b.getAttacks().length);
+
+        Combat asdf = new Combat(b, new Enemy(50, "whatever", new Weapon("Stuff", 5)));
+        asdf.runBasicFight();
     }
 }
