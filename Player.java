@@ -7,21 +7,62 @@ public class Player extends Entity {
         new Armor("None", 0, 0, 0), 
         new Armor("None", 0, 0, 0)
     };
+    private int healAmount;
+    private Weapon[] attacks;
 
-    public Player(int maxHealth, int level, String name, Weapon basicAttack, Armor[] armor) {
+    public Player(int maxHealth, int level, String name, Weapon basicAttack, int healAmount, Armor[] armor) {
         super(maxHealth, name);
         this.level = level;
         this.basicAttack = basicAttack;
         this.armor = armor;
+        this.healAmount = healAmount;
+        this.attacks = new Weapon[]{
+            basicAttack, 
+            new Weapon("None", 0),
+            new Weapon("None", 0),
+            new Weapon("None", 0)
+        };
     }
 
-    public Player(int maxHealth, int level, String name, Weapon basicAttack) {
+    public Weapon[] getAttacks() {
+        return this.attacks;
+    }
+
+    public Player(int maxHealth, int level, String name, Weapon basicAttack, int healAmount) {
         super(maxHealth, name);
         this.level = level;
         this.basicAttack = basicAttack;
+        this.healAmount = healAmount;
+        this.attacks = new Weapon[]{
+            basicAttack, 
+            new Weapon("None", 0),
+            new Weapon("None", 0),
+            new Weapon("None", 0)
+        };
     }
 
     public Weapon getBasicAttack() {
         return this.basicAttack;
+    }
+
+    public void moveHeal() {
+        this.heal(this.healAmount);
+    }
+
+    public int getHealAmount() {
+        return this.healAmount;
+    }
+
+    @Override
+    public void takeDamage(int damage) {
+        super.takeDamage(
+            armor[0].getModDmg(
+                armor[1].getModDmg(
+                    armor[2].getModDmg(
+                        armor[3].getModDmg(damage)
+                    )
+                )
+            )
+        );
     }
 }
