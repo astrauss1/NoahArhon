@@ -7,9 +7,16 @@ public class Player extends Entity {
         new Armor("None", 0, 0, 0), 
         new Armor("None", 0, 0, 0)
     };
-    private int healAmount;
-    private Weapon[] attacks;
-
+    private Item[] inventory = {
+        new Item("None"),
+        new Item("None"),
+        new Item("None"),
+        new Item("None"),
+        new Item("None"),
+        new Item("None"),
+        new Item("None"),
+        new Item("None")
+    };
     public Player(int maxHealth, int level, String name, Weapon basicAttack, int healAmount, Armor[] armor) {
         super(maxHealth, name);
         this.level = level;
@@ -44,6 +51,7 @@ public class Player extends Entity {
     public Weapon getBasicAttack() {
         return this.basicAttack;
     }
+<<<<<<< HEAD
 
     public void moveHeal() {
         this.heal(this.healAmount);
@@ -64,5 +72,12 @@ public class Player extends Entity {
                 )
             )
         );
+=======
+    public Item[] getInventory(){
+        return this.inventory;
+    }
+    public Armor[] getArmor(){
+        return this.armor;
+>>>>>>> 8ab87cbff3d95bb1b9b00e8f418d85c2f16e93d5
     }
 }
