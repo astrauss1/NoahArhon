@@ -6,5 +6,8 @@ public class Main {
         Weapon basicSword = new Weapon("Basic Sword", 10);
         Player a = new Player(50, 1, pName, basicSword);
         System.out.println(a.getName());
+        Location test = new Location("test", 20, 6);
+        int p=test.getMove();
+        test.getRoom(p);
     }
 }
