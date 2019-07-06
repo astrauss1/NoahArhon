@@ -13,8 +13,8 @@ public class Location{
     public String getType(){
         return this.type;
     }
-    public void getRoom(int k){
-        String[] arr=new String[10000];
+    public void getRoomSize(int k){
+        String[] arr=new String[this.width*this.length];
         
         int x=this.width;
         for(int g=0; g<this.length; g++){   
@@ -29,7 +29,7 @@ public class Location{
             x=x+this.width;
         }
     }
-    public int getMove(String uM, int p){
+    public int Move(String uM, int p){
         if(uM.equalsIgnoreCase("w")){
             p=p-this.width;
         }

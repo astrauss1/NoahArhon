@@ -11,8 +11,8 @@ public class Main {
         while(asdf.getCombat()!=true){
             System.out.print("please enter wasd");
             String uM=userMove.next();
-            int k=test.getMove(uM, p);
-            test.getRoom(k);
+            int k=test.Move(uM, p);
+            test.getRoomSize(k);
             p=k;
 
         }
