@@ -1,3 +1,9 @@
+package game.entities;
+
+import game.entities.Entity;
+import game.items.Armor;
+import game.items.Weapon;
+
 public class Enemy extends Entity {
     private Armor[] armor = new Armor[4];
     private Weapon attack;

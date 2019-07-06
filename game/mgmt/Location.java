@@ -1,3 +1,5 @@
+package game.mgmt;
+
 import java.util.Random;
 public class Location{
     private String type;

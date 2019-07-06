@@ -1,5 +1,10 @@
 import javax.swing.JOptionPane;
 
+import game.entities.Player;
+import game.entities.Enemy;
+import game.items.Weapon;
+import game.mgmt.Combat;
+
 public class Main {
     public static void main(String[] args) {
         Player b = new Player(50, 1, "Hi", new Weapon("asdf", 10), 10);
