@@ -1,4 +1,5 @@
 import java.util.Random;
+
 public class Armor {
     private String name;
     private double dmgAbs;
@@ -17,8 +18,8 @@ public class Armor {
         return this.name;
     }
 
-    public double getModDmg(int damage) {
-        double tmp = this.dmgAbs;
+    public int getModDmg(int damage) {
+        double tmp = 1 - this.dmgAbs;
         Random rand = new Random();
         if (rand.nextDouble() < this.allDmg) {
             tmp = 0.0;

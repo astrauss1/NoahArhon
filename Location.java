@@ -13,7 +13,7 @@ public class Location{
     public String getType(){
         return this.type;
     }
-    public void getRoom(int p){
+    public void getRoom(int k){
         String[] arr=new String[10000];
         
         int x=this.width;
@@ -22,23 +22,19 @@ public class Location{
                 arr[h]="|";
             }
             for(int q=x-this.width; q<x; q++){
-                arr[p]="0";
+                arr[k]="0";
                 System.out.print(arr[q]);
             }
             System.out.println("");
             x=x+this.width;
         }
     }
-    public int getMove(){
-        Scanner userMove = new Scanner(System.in);
-        System.out.print("please enter wasd");
-        String uM=userMove.next();
-        int p=10;
+    public int getMove(String uM, int p){
         if(uM.equalsIgnoreCase("w")){
-            p=p+this.width;
+            p=p-this.width;
         }
         if(uM.equalsIgnoreCase("s")){
-            p=p-this.width;
+            p=p+this.width;
         }
         if(uM.equalsIgnoreCase("a")){
             p=p-1;
@@ -46,7 +42,6 @@ public class Location{
         if(uM.equalsIgnoreCase("d")){
             p=p+1;
         }
-        userMove.close();
-        return p;
+        return p;    
     }     
 }

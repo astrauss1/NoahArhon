@@ -1,13 +1,24 @@
 import javax.swing.JOptionPane;
-
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        String pName=JOptionPane.showInputDialog(null, "Please enter your name");
-        Weapon basicSword = new Weapon("Basic Sword", 10);
-        Player a = new Player(50, 1, pName, basicSword);
-        System.out.println(a.getName());
+        Player b = new Player(50, 1, "hi", new Weapon("asdf", 10), 10);
+        System.out.println(b.getName());
         Location test = new Location("test", 20, 6);
-        int p=test.getMove();
-        test.getRoom(p);
+        Scanner userMove = new Scanner(System.in);
+        int p=10;
+        Combat asdf = new Combat(b, new Enemy(50, "whatever", new Weapon("Stuff", 5)));
+        while(asdf.getCombat()!=true){
+            System.out.print("please enter wasd");
+            String uM=userMove.next();
+            int k=test.getMove(uM, p);
+            test.getRoom(k);
+            p=k;
+
+        }
+        userMove.close();
+        System.out.println(b.getAttacks().length);
+        asdf.runBasicFight();
+
     }
 }
