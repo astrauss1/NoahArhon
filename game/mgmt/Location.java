@@ -1,3 +1,4 @@
+package game.mgmt;
 
 import java.util.Random;
 import java.util.Scanner;

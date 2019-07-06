@@ -1,3 +1,7 @@
+package game.effects;
+
+
+
 public class Ability {
     private int damage;
     private double dmgMult;
@@ -22,7 +26,7 @@ public class Ability {
     }
     public int getDmgRed(int damage){
         double tmp=this.dmgRed;
-        return(int)(tmp * damage);
+        return(int)((1 - tmp) * damage);
     }
     public int getDamage(){
         return this.damage;

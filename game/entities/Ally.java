@@ -1,3 +1,9 @@
+package game.entities;
+
+import game.entities.Entity;
+import game.items.Weapon;
+import game.items.Armor;
+
 public class Ally extends Entity {
     private Weapon basicAttack;
     private Armor[] armor = {
