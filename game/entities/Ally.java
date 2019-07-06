@@ -1,3 +1,9 @@
+package game.entities;
+
+import game.entities.Entity;
+import game.items.Weapon;
+import game.items.Armor;
+
 public class Ally extends Entity {
     private Weapon basicAttack;
     private Armor[] armor = {
@@ -7,14 +13,14 @@ public class Ally extends Entity {
         new Armor("None", 0, 0, 0)
     };
 
-    public Ally (int maxHealth, String name, Weapon basicAttack, Armor[] armor) {
-        super(maxHealth, name);
+    public Ally (int maxHealth, String name, int[] location, Weapon basicAttack, Armor[] armor) {
+        super(maxHealth, name, location);
         this.basicAttack = basicAttack;
         this.armor = armor;
     }
 
-    public Ally(int maxHealth, String name, Weapon basicAttack) {
-        super(maxHealth, name);
+    public Ally(int maxHealth, String name, int[] location, Weapon basicAttack) {
+        super(maxHealth, name, location);
         this.basicAttack = basicAttack;
     }
 

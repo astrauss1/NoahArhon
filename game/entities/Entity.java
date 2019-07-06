@@ -1,13 +1,17 @@
+package game.entities;
+
 public class Entity {
     private int health;
     private int maxHealth;
     private String name;
     private int MoveSpeed;
-    public Entity(int maxHealth, String name) {
+    private int[] location;
+    public Entity(int maxHealth, String name, int[] location) {
         this.maxHealth = maxHealth;
         this.health = maxHealth;
         this.name = name;
         this.MoveSpeed=MoveSpeed;
+        this.location = location;
     }
 
     public String getName() {
@@ -34,5 +38,25 @@ public class Entity {
     }
     public int getMove(char m){
         return this.MoveSpeed;
+    }
+
+    public int[] getLocation() {
+        return this.location;
+    }
+    public void move(String dir) {
+        switch (dir) {
+            case "w":
+                this.location[1] -= 1;
+                break;
+            case "a":
+                this.location[0] -= 1;
+                break;
+            case "s":
+                this.location[1] += 1;
+                break;
+            case "d":
+                this.location[0] += 1;
+                break;
+        }
     }
 }
