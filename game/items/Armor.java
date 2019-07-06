@@ -1,3 +1,5 @@
+package game.items;
+
 import java.util.Random;
 
 public class Armor {

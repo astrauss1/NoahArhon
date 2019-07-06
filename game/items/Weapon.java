@@ -1,3 +1,7 @@
+package game.items;
+
+import game.entities.Entity;
+
 public class Weapon{
     private String name;
     private int damage;

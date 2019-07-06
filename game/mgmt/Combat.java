@@ -1,4 +1,11 @@
+package game.mgmt;
+
 import javax.swing.JOptionPane;
+
+import game.entities.Player;
+import game.entities.Enemy;
+import game.entities.Boss;
+import game.items.Weapon;
 
 public class Combat {
     private Player player;

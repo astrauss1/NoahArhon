@@ -1,3 +1,10 @@
+package game.entities;
+
+import game.entities.Entity;
+import game.items.Armor;
+import game.items.Weapon;
+import game.items.Item;
+
 public class Player extends Entity {
     private int level;
     private Weapon basicAttack;
@@ -20,8 +27,8 @@ public class Player extends Entity {
     private int healAmount;
     private Weapon[] attacks;
 
-    public Player(int maxHealth, int level, String name, Weapon basicAttack, int healAmount, Armor[] armor) {
-        super(maxHealth, name);
+    public Player(int maxHealth, int level, String name, int[] location, Weapon basicAttack, int healAmount, Armor[] armor) {
+        super(maxHealth, name, location);
         this.level = level;
         this.basicAttack = basicAttack;
         this.armor = armor;
@@ -38,8 +45,8 @@ public class Player extends Entity {
         return this.attacks;
     }
 
-    public Player(int maxHealth, int level, String name, Weapon basicAttack, int healAmount) {
-        super(maxHealth, name);
+    public Player(int maxHealth, int level, String name, int[] location, Weapon basicAttack, int healAmount) {
+        super(maxHealth, name, location);
         this.level = level;
         this.basicAttack = basicAttack;
         this.healAmount = healAmount;
@@ -78,6 +85,7 @@ public class Player extends Entity {
     public Item[] getInventory(){
         return this.inventory;
     }
+    
     public Armor[] getArmor(){
         return this.armor;
     }
