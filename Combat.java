@@ -184,4 +184,7 @@ public class Combat {
         }
         ran = false;
     }
+    public boolean getCombat(){
+        return this.combatActive;
+    }
 }
