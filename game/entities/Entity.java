@@ -43,7 +43,6 @@ public class Entity {
     public int[] getLocation() {
         return this.location;
     }
-
     public void move(String dir) {
         switch (dir) {
             case "w":

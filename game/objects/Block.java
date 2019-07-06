@@ -1,5 +1,5 @@
 package game.objects;
 
-publoic class Block {
+public class Block {
     
 }

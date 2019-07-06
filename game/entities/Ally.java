@@ -19,8 +19,8 @@ public class Ally extends Entity {
         this.armor = armor;
     }
 
-    public Ally(int maxHealth, String name, Weapon basicAttack) {
-        super(maxHealth, name);
+    public Ally(int maxHealth, String name, int[] location, Weapon basicAttack) {
+        super(maxHealth, name, location);
         this.basicAttack = basicAttack;
     }
 
