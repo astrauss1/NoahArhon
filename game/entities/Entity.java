@@ -1,3 +1,5 @@
+package game.entities;
+
 public class Entity {
     private int health;
     private int maxHealth;

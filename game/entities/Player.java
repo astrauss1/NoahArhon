@@ -1,3 +1,10 @@
+package game.entities;
+
+import game.entities.Entity;
+import game.items.Armor;
+import game.items.Weapon;
+import game.items.Item;
+
 public class Player extends Entity {
     private int level;
     private Weapon basicAttack;
