@@ -1,7 +1,8 @@
-import java.util.Random;
-public class Status{
+package game.items;
+
+public class Item{
     private String name;
-    public Status(String name){
+    public Item(String name){
         this.name=name;
     }
     public String getName(){
