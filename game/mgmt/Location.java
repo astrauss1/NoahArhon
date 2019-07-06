@@ -2,6 +2,9 @@ package game.mgmt;
 
 import java.util.Random;
 import java.util.Scanner;
+
+import game.entities.Player;
+
 public class Location{
     private String type;
     private int width;
@@ -14,35 +17,16 @@ public class Location{
     public String getType(){
         return this.type;
     }
-    public void getRoom(int k){
-        String[] arr=new String[10000];
-        
-        int x=this.width;
-        for(int g=0; g<this.length; g++){   
-            for(int h=x-this.width; h<x; h++){
-                arr[h]="|";
+    public void drawRoom(Player player){
+        for (int y = 0; y < this.length; y++) {
+            for (int x = 0; x < this.width; x++) {
+                if (x == player.getLocation()[0] && y == player.getLocation()[1]) {
+                    System.out.print("A");
+                } else {
+                    System.out.print("|");
+                }
             }
-            for(int q=x-this.width; q<x; q++){
-                arr[k]="0";
-                System.out.print(arr[q]);
-            }
-            System.out.println("");
-            x=x+this.width;
+            System.out.println();
         }
     }
-    public int getMove(String uM, int p){
-        if(uM.equalsIgnoreCase("w")){
-            p=p-this.width;
-        }
-        if(uM.equalsIgnoreCase("s")){
-            p=p+this.width;
-        }
-        if(uM.equalsIgnoreCase("a")){
-            p=p-1;
-        }
-        if(uM.equalsIgnoreCase("d")){
-            p=p+1;
-        }
-        return p;    
-    }     
 }

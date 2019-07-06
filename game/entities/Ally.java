@@ -13,8 +13,8 @@ public class Ally extends Entity {
         new Armor("None", 0, 0, 0)
     };
 
-    public Ally (int maxHealth, String name, Weapon basicAttack, Armor[] armor) {
-        super(maxHealth, name);
+    public Ally (int maxHealth, String name, int[] location, Weapon basicAttack, Armor[] armor) {
+        super(maxHealth, name, location);
         this.basicAttack = basicAttack;
         this.armor = armor;
     }

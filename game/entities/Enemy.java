@@ -7,14 +7,14 @@ import game.items.Weapon;
 public class Enemy extends Entity {
     private Armor[] armor = new Armor[4];
     private Weapon attack;
-    public Enemy (int maxHealth, String name, Weapon attack, Armor[] armor){
-        super(maxHealth, name);
+    public Enemy (int maxHealth, String name, int[] location, Weapon attack, Armor[] armor){
+        super(maxHealth, name, location);
         this.attack = attack;
         this.armor = armor;
     }
 
-    public Enemy (int maxHealth, String name, Weapon attack){
-        super(maxHealth, name);
+    public Enemy (int maxHealth, String name, int[] location, Weapon attack){
+        super(maxHealth, name, location);
         this.attack=attack;
         this.armor = new Armor[]{
             new Armor("None", 0, 0, 0),

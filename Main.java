@@ -5,26 +5,24 @@ import game.entities.Player;
 import game.entities.Enemy;
 import game.items.Weapon;
 import game.mgmt.Combat;
+import game.mgmt.Location;
 
 public class Main {
     public static void main(String[] args) {
-        Player b = new Player(50, 1, "hi", new Weapon("asdf", 10), 10);
-        System.out.println(b.getName());
+        Player b = new Player(50, 1, "hi", new int[]{0, 0}, new Weapon("asdf", 10), 10);
         Location test = new Location("test", 20, 6);
-        Scanner userMove = new Scanner(System.in);
-        int p=10;
-        Combat asdf = new Combat(b, new Enemy(50, "whatever", new Weapon("Stuff", 5)));
-        while(asdf.getCombat()!=true){
-            System.out.print("please enter wasd");
-            String uM=userMove.next();
-            int k=test.getMove(uM, p);
-            test.getRoom(k);
-            p=k;
 
+        Scanner userMove = new Scanner(System.in);
+        String uM;
+        while(true){
+            test.drawRoom(b);
+            System.out.print("Type wasd: ");
+            uM = userMove.nextLine();
+            if (!(uM.equals("w") || uM.equals("a") || uM.equals("s") || uM.equals("d"))) {
+                break;
+            }
+            b.move(uM);
         }
         userMove.close();
-        System.out.println(b.getAttacks().length);
-        asdf.runBasicFight();
-
     }
 }
