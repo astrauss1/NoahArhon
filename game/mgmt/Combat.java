@@ -15,27 +15,7 @@ public class Combat {
     private String loser;
     private boolean ran = false;
     
-    public Combat(Player player, Enemy enemy) {
-        this.player = player;
-        this.enemy = enemy;
-    }
-
-    public Combat(Player player, Boss boss) {
-        this.player = player;
-        this.boss = boss;
-    }
-
-    private String promptA(String prompt, String title, String[] options, int defaultIndex) {
-        return (String)JOptionPane.showInputDialog(
-            null, 
-            prompt, 
-            title, 
-            JOptionPane.QUESTION_MESSAGE, 
-            null, 
-            options, 
-            options[defaultIndex]
-        );
-    }
+    public Combat() {}
 
     private int promptB(String prompt, String title, String[] options, int defaultIndex) {
         return JOptionPane.showOptionDialog(
@@ -154,7 +134,10 @@ public class Combat {
         }
     }
 
-    public void runBasicFight() {
+    public void runBasicFight(Player p, Enemy e) {
+
+        this.player = p;
+        this.enemy = e;
 
         this.combatActive = true;
         int startHealth = player.getHealth();
@@ -189,7 +172,10 @@ public class Combat {
                 "."
             );
         }
+        player.moveBack();
         ran = false;
+        this.player = null;
+        this.enemy = null;
     }
     public boolean getCombat(){
         return this.combatActive;

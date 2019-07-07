@@ -6,6 +6,7 @@ public class Entity {
     private String name;
     private int MoveSpeed;
     private int[] location;
+    private int[] prevLoc = new int[2];
     public Entity(int maxHealth, String name, int[] location) {
         this.maxHealth = maxHealth;
         this.health = maxHealth;
@@ -44,6 +45,8 @@ public class Entity {
         return this.location;
     }
     public void move(String dir) {
+        prevLoc[0] = location[0];
+        prevLoc[1] = location[1];
         switch (dir) {
             case "w":
                 this.location[1] -= 1;
@@ -58,5 +61,14 @@ public class Entity {
                 this.location[0] += 1;
                 break;
         }
+    }
+    
+    public void moveBack() {
+        this.location[0] = this.prevLoc[0];
+        this.location[1] = this.prevLoc[1];
+    }
+
+    public static boolean sameLocation(Entity a, Entity b) {
+        return (a.getLocation()[0] == b.getLocation()[0] && a.getLocation()[1] == b.getLocation()[1]);
     }
 }

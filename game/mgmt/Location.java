@@ -4,7 +4,9 @@ import java.util.Random;
 import java.util.Scanner;
 import game.entities.Enemy;
 import game.entities.Player;
-
+/**
+ * Manages information about the current room and draws it
+ */
 public class Location{
     private String type;
     private int width;
