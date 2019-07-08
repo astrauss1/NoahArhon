@@ -1,5 +1,5 @@
 package game.entities;
-
+import game.objects.Block;
 /**
  * The Entity class includes all enemies, allies, bosses, and the player.
  */
@@ -14,6 +14,7 @@ public class Entity {
         this.health = maxHealth;
         this.name = name;
         this.location = location;
+        this.prevLoc= prevLoc;
     }
 
     /**
@@ -70,7 +71,7 @@ public class Entity {
      * Moves the entity to a different location.
      * @param dir a character w, a, s, or d which refers to which direction to move the character. 
      */
-    public void move(String dir) {
+    public void move(String dir, Entity entity, Block block) {
         prevLoc[0] = location[0];
         prevLoc[1] = location[1];
         switch (dir) {
@@ -87,6 +88,10 @@ public class Entity {
                 this.location[0] += 1;
                 break;
         }
+        if (Entity.sameLocation(entity, block)){
+            entity.moveBack();
+        }
+        
     }
     
     /**
@@ -100,10 +105,17 @@ public class Entity {
            because then they would both point to 
            the same array so moveBack would do 
            nothing after its first usage */
+        
+
         this.location[0] = this.prevLoc[0];
         this.location[1] = this.prevLoc[1];
     }
-
+    public int[] wall(Entity a, Block b){
+        if (sameLocation(a , b) != true){
+            a.moveBack();
+        }
+        return this.location;
+    }
     /**
      * Checks if two entities are in the same location. 
      * @param a Any entity to compare the location of.
@@ -112,5 +124,8 @@ public class Entity {
      */
     public static boolean sameLocation(Entity a, Entity b) {
         return (a.getLocation()[0] == b.getLocation()[0] && a.getLocation()[1] == b.getLocation()[1]);
+    }
+    public static boolean sameLocation(Entity a, Block b){
+        return (a.getLocation()[0] == b.getBlock()[0] && a.getLocation()[1] == b.getBlock()[1]);
     }
 }
