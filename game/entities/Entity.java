@@ -1,5 +1,7 @@
 package game.entities;
-
+import game.objects.Block;
+import game.objects.Trap;
+import game.items.*;
 /**
  * The Entity class includes all enemies, allies, bosses, and the player.
  */
@@ -14,6 +16,7 @@ public class Entity {
         this.health = maxHealth;
         this.name = name;
         this.location = location;
+        this.prevLoc= prevLoc;
     }
 
     /**
@@ -70,7 +73,7 @@ public class Entity {
      * Moves the entity to a different location.
      * @param dir a character w, a, s, or d which refers to which direction to move the character. 
      */
-    public void move(String dir) {
+    public void move(String dir, Block block, Trap trap) {
         prevLoc[0] = location[0];
         prevLoc[1] = location[1];
         switch (dir) {
@@ -87,6 +90,22 @@ public class Entity {
                 this.location[0] += 1;
                 break;
         }
+        if (Entity.sameLocation(this, block)){
+            this.moveBack();
+        }
+        if (Entity.sameLocation(this, trap)){
+            if(trap.getType().equalsIgnoreCase("Spikes")){
+                int d = 10;
+                this.health = this.health-d;
+                System.out.println("You have taken " + d + " damage.");
+            }
+            if(trap.getType().equalsIgnoreCase("Quicksand")){
+                //will fill in later
+            }
+            if(trap.getType().equalsIgnoreCase("Monster spawn")){
+                Enemy trapMonster = new Enemy(25, "Trap Monster", this.getLocation(), new Weapon("Trap Weapon", 5));
+            }
+        }
     }
     
     /**
@@ -100,6 +119,8 @@ public class Entity {
            because then they would both point to 
            the same array so moveBack would do 
            nothing after its first usage */
+        
+
         this.location[0] = this.prevLoc[0];
         this.location[1] = this.prevLoc[1];
     }
@@ -112,5 +133,11 @@ public class Entity {
      */
     public static boolean sameLocation(Entity a, Entity b) {
         return (a.getLocation()[0] == b.getLocation()[0] && a.getLocation()[1] == b.getLocation()[1]);
+    }
+    public static boolean sameLocation(Entity a, Block b){
+        return (a.getLocation()[0] == b.getBlock()[0] && a.getLocation()[1] == b.getBlock()[1]);
+    }
+    public static boolean sameLocation(Entity a, Trap b){
+        return (a.getLocation()[0] == b.getTrap()[0] && a.getLocation()[1] == b.getTrap()[1]);
     }
 }
