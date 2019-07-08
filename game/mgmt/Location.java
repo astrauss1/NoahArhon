@@ -22,7 +22,7 @@ public class Location{
     public String getType(){
         return this.type;
     }
-    public void drawRoom(Player player, Enemy enemy, Block block){
+    public void drawRoom(Player player, Enemy enemy, Block block, Trap trap){
 
         for (int y = 0; y < this.length; y++) {
             for (int x = 0; x < this.width; x++) {
@@ -31,6 +31,8 @@ public class Location{
                     System.out.print("A");
                 } else if(x == enemy.getLocation()[0] && y == enemy.getLocation()[1]){
                     System.out.print("E");
+                } else if(x == trap.getTrap()[0] && y == trap.getTrap()[1]){
+                    System.out.print("^");
                 } else if(x == block.getBlock()[0] && y == block.getBlock()[1]){
                     System.out.print("!");
                 } else {

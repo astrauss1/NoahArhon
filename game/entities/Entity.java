@@ -1,5 +1,7 @@
 package game.entities;
 import game.objects.Block;
+import game.objects.Trap;
+import game.items.*;
 /**
  * The Entity class includes all enemies, allies, bosses, and the player.
  */
@@ -71,7 +73,7 @@ public class Entity {
      * Moves the entity to a different location.
      * @param dir a character w, a, s, or d which refers to which direction to move the character. 
      */
-    public void move(String dir, Entity entity, Block block) {
+    public void move(String dir, Entity entity, Block block, Trap trap) {
         prevLoc[0] = location[0];
         prevLoc[1] = location[1];
         switch (dir) {
@@ -91,7 +93,19 @@ public class Entity {
         if (Entity.sameLocation(entity, block)){
             entity.moveBack();
         }
-        
+        if (Entity.sameLocation(entity, trap)){
+            if(trap.getType().equalsIgnoreCase("Spikes")){
+                int d = 10;
+                this.health = this.health-d;
+                System.out.println("You have taken " + d + " damage.");
+            }
+            if(trap.getType().equalsIgnoreCase("Quicksand")){
+                //will fill in later
+            }
+            if(trap.getType().equalsIgnoreCase("Monster spawn")){
+                Enemy trapMonster = new Enemy(25, "Trap Monster", entity.getLocation(), new Weapon("Trap Weapon", 5));
+            }
+        }
     }
     
     /**
@@ -127,5 +141,8 @@ public class Entity {
     }
     public static boolean sameLocation(Entity a, Block b){
         return (a.getLocation()[0] == b.getBlock()[0] && a.getLocation()[1] == b.getBlock()[1]);
+    }
+    public static boolean sameLocation(Entity a, Trap b){
+        return (a.getLocation()[0] == b.getTrap()[0] && a.getLocation()[1] == b.getTrap()[1]);
     }
 }

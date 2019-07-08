@@ -21,21 +21,23 @@ public class Main {
         Location test = new Location("test", 20, 6);
         Combat doCombat = new Combat();
         Block c = new Block(new int[]{1, 4});
+        Trap t = new Trap(new int[]{3, 5}, "Spikes");
         Scanner userMove = new Scanner(System.in);
         // uM: the letter the user inputs, be it w, a, s, or d.
         String uM;
         while(true){
-            test.drawRoom(b, a, c);
+            
+            test.drawRoom(b, a, c, t);
             System.out.print("Type wasd: ");
             uM = userMove.nextLine();
             if (!(uM.equals("w") || uM.equals("a") || uM.equals("s") || uM.equals("d"))) {
                 break;
             }
-            b.move(uM, b, c);
+            b.move(uM, b, c, t);
             if (Entity.sameLocation(a, b)){
                 doCombat.runBasicFight(b, a);
             }
-
+            System.out.println(b.getHealth());
 
         }
         userMove.close();
