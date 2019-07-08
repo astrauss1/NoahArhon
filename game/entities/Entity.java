@@ -73,7 +73,7 @@ public class Entity {
      * Moves the entity to a different location.
      * @param dir a character w, a, s, or d which refers to which direction to move the character. 
      */
-    public void move(String dir, Entity entity, Block block, Trap trap) {
+    public void move(String dir, Block block, Trap trap) {
         prevLoc[0] = location[0];
         prevLoc[1] = location[1];
         switch (dir) {
@@ -90,10 +90,10 @@ public class Entity {
                 this.location[0] += 1;
                 break;
         }
-        if (Entity.sameLocation(entity, block)){
-            entity.moveBack();
+        if (Entity.sameLocation(this, block)){
+            this.moveBack();
         }
-        if (Entity.sameLocation(entity, trap)){
+        if (Entity.sameLocation(this, trap)){
             if(trap.getType().equalsIgnoreCase("Spikes")){
                 int d = 10;
                 this.health = this.health-d;
@@ -103,7 +103,7 @@ public class Entity {
                 //will fill in later
             }
             if(trap.getType().equalsIgnoreCase("Monster spawn")){
-                Enemy trapMonster = new Enemy(25, "Trap Monster", entity.getLocation(), new Weapon("Trap Weapon", 5));
+                Enemy trapMonster = new Enemy(25, "Trap Monster", this.getLocation(), new Weapon("Trap Weapon", 5));
             }
         }
     }
@@ -124,12 +124,7 @@ public class Entity {
         this.location[0] = this.prevLoc[0];
         this.location[1] = this.prevLoc[1];
     }
-    public int[] wall(Entity a, Block b){
-        if (sameLocation(a , b) != true){
-            a.moveBack();
-        }
-        return this.location;
-    }
+
     /**
      * Checks if two entities are in the same location. 
      * @param a Any entity to compare the location of.

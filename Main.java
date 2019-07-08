@@ -33,7 +33,7 @@ public class Main {
             if (!(uM.equals("w") || uM.equals("a") || uM.equals("s") || uM.equals("d"))) {
                 break;
             }
-            b.move(uM, b, c, t);
+            b.move(uM, c, t);
             if (Entity.sameLocation(a, b)){
                 doCombat.runBasicFight(b, a);
             }
